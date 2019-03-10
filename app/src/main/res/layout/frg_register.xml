@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient"
@@ -20,15 +20,17 @@
         android:layout_marginBottom="35dp"
         android:layout_above="@+id/et_pass"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
         android:textColorHint="@color/inputColor"
         android:textColor="@color/inputColor"/>
 
     <EditText
+        android:layout_below="@+id/et_userNameReg"
         android:id="@+id/et_mailReg"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@drawable/rounded_edit_text"
-        android:drawableLeft="@drawable/ic_action_user"
+        android:drawableLeft="@drawable/ic_email"
         android:ems="10"
         android:hint="E-mail"
         android:inputType="textEmailAddress"
@@ -40,11 +42,12 @@
         android:textColor="@color/inputColor"/>
 
     <EditText
+        android:layout_below="@+id/et_mailReg"
         android:id="@+id/et_passReg"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@drawable/rounded_edit_text"
-        android:drawableLeft="@drawable/ic_action_user"
+        android:drawableLeft="@drawable/ic_action_pass"
         android:ems="10"
         android:hint="Heslo"
         android:inputType="textPassword"
@@ -56,11 +59,12 @@
         android:textColor="@color/inputColor"/>
 
     <EditText
+        android:layout_below="@+id/et_passReg"
         android:id="@+id/et_passAgainReg"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@drawable/rounded_edit_text"
-        android:drawableLeft="@drawable/ic_action_user"
+        android:drawableLeft="@drawable/ic_action_pass"
         android:ems="10"
         android:hint="Heslo znovu"
         android:inputType="textPassword"
@@ -73,6 +77,7 @@
 
 
     <RadioGroup
+        android:layout_below="@+id/et_passAgainReg"
         android:id="@+id/rBtnGroup_reg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -101,7 +106,8 @@
         android:layout_marginBottom="31dp"
         android:layout_above="@+id/tw_registerLink"
         android:layout_centerHorizontal="true"
-        android:id="@+id/cardView_login">
+        android:id="@+id/cardView_reg"
+        android:layout_alignParentBottom="true">
         <Button
             android:layout_width="300dp"
             android:layout_height="50dp"
@@ -114,4 +120,4 @@
             android:textColor="@color/darkOrange"/>
     </android.support.v7.widget.CardView>
 
-</LinearLayout>
+</RelativeLayout>
