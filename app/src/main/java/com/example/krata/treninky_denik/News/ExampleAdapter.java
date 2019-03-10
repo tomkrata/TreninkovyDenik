@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,8 +20,13 @@ import java.util.ArrayList;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
-public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleViewHolder> {
+public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleViewHolder> implements View.OnClickListener{
     private ArrayList<ExampleItem> mExampleList;
+
+    @Override
+    public void onClick(View v) {
+        v.getId();
+    }
 
     public static class ExampleViewHolder extends RecyclerView.ViewHolder {
         public CircleImageView mImageView;
