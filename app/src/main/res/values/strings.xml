@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Treninky_denik</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="register_here"><u>Registrace zde</u></string>
+</resources>

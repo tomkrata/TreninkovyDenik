@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="@android:color/white">
+
+    <TextView
+        android:text="Den v týdnu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/dayOfWeek_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal">
+        <RadioButton android:id="@+id/rBtn_Po"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Po"
+            android:textSize="17sp"/>
+        <RadioButton android:id="@+id/rBtn_Ut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Út"
+            android:textSize="17sp"/>
+        <RadioButton android:id="@+id/rBtn_St"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="St"
+            android:textSize="17sp"/>
+        <RadioButton android:id="@+id/rBtn_Ct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Čt"
+            android:textSize="17sp"/>
+        <RadioButton android:id="@+id/rBtn_Pa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pá"
+            android:textSize="17sp"/>
+        <RadioButton android:id="@+id/rBtn_So"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="So"
+            android:textSize="17sp"/>
+        <RadioButton android:id="@+id/rBtn_Ne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ne"
+            android:textSize="17sp"/>
+    </RadioGroup>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Čas lekce"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lesson_start"
+            android:layout_marginBottom="10dp"
+            android:textSize="30sp"
+            android:text="Začátek"
+            android:layout_marginRight="50dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lesson_end"
+            android:layout_marginBottom="10dp"
+            android:textSize="30sp"
+            android:text="Konec"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hráči (načítání)"
+        android:id="@+id/hraci_view"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/players_layout"
+        android:orientation="vertical">
+    </LinearLayout>
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner_players"
+        android:layout_marginTop="15dp">
+    </Spinner>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="V období"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/period_start"
+            android:layout_marginBottom="10dp"
+            android:textSize="30sp"
+            android:text="Od"
+            android:layout_marginRight="25dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:textSize="20sp"
+            android:text="-"
+            android:layout_marginRight="25dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/period_end"
+            android:layout_marginBottom="10dp"
+            android:textSize="30sp"
+            android:text="Do"/>
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_saveLesson"
+        android:text="Uložit lekci"
+        android:layout_marginBottom="10dp"/>
+
+</LinearLayout>

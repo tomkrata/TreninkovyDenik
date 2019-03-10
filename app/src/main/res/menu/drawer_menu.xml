@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/nav_news" android:title="Novinky" android:icon="@drawable/ic_news"/>
+        <item android:id="@+id/nav_login" android:title="Login" android:icon="@drawable/ic_face"/>
+        <item android:id="@+id/nav_lessons" android:title="Správa tréninků" android:icon="@drawable/ic_settings"/>
+        <item android:id="@+id/nav_cal" android:title="Kalendář" android:icon="@drawable/ic_calendar" />
+        <item android:id="@+id/nav_chat" android:title="Chat" android:icon="@drawable/ic_chat" />
+    </group>
+    <item android:title="Not selectable">
+        <menu>
+            <item android:id="@+id/nav_signout" android:title="Odhlásit se" android:icon="@drawable/ic_signout" />
+        </menu>
+    </item>
+</menu>
