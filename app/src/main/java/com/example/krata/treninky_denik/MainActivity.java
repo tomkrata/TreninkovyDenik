@@ -203,15 +203,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             try {
                 Class myClass = Class.forName(className);
 
-                Class[] types = {Double.TYPE, this.getClass()};
-                Constructor constructor = myClass.getConstructor(types);
+                Constructor constructor = myClass.getConstructor();
 
                 instanceOfMyClass = constructor.newInstance();
             } catch (Exception e) {
                 e.printStackTrace();
             }
             getSupportFragmentManager().beginTransaction().replace(R.id.frg_container, (Fragment)instanceOfMyClass).commit();
-            Toast.makeText(this, className, Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, className, Toast.LENGTH_SHORT).show();
         }
     }
 }
