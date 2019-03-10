@@ -37,7 +37,7 @@ public class NewsFrg extends Fragment {
     private RecyclerView.LayoutManager mLayoutManager;
 
 
-    String tennisURL = "https://newsapi.org/v2/everything?q=tennis&apiKey=09587b074e35476ea92bd2387c8802c5";
+    String tennisURL = "https://www.tenisportal.cz/feed/rss2/";
     JSON_reader reader;
     public News news;
     List<Article> articles = new ArrayList<>();

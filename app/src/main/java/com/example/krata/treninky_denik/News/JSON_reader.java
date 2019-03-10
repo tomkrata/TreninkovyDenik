@@ -9,6 +9,7 @@ import com.example.krata.treninky_denik.Fragments.NewsFrg;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.XML;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -27,6 +28,7 @@ public class JSON_reader extends AsyncTask<Void, Void, News>
     Context context;
 
     private NewsFrg frg;
+    private static final String ns = null;
 
     public JSON_reader(NewsFrg frg, Context context, String url) {
         this.context = context;
@@ -47,29 +49,34 @@ public class JSON_reader extends AsyncTask<Void, Void, News>
 
     @Override
     protected News doInBackground(Void... params) {
-        JSONObject jsonObject = getJSON();
+        JSONObject jsonObject = null;
         try {
-            JSONArray articles = jsonObject.getJSONArray("articles");
+            jsonObject = XML.toJSONObject(getContent()).getJSONObject("rss").getJSONObject("channel");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
+            JSONArray articles = jsonObject.getJSONArray("item");
             List<Article> articleList = new ArrayList<>();
+            String author = jsonObject.getString("title");
             for(int i = 0; i < articles.length(); i++)
             {
                 JSONObject article = articles.getJSONObject(i);
-                String author = article.getString("author");
                 String title = article.getString("title");
                 String description = article.getString("description");
-                String url = article.getString("url");
-                String urlToImage = article.getString("urlToImage");
-                String publishedAt = article.getString("publishedAt");
+                String url = article.getString("link");
+                String urlToImage = article.getJSONObject("enclosure").getString("url");
+                String publishedAt = article.getString("pubDate");
                 articleList.add(new Article(author,title,description,url,urlToImage,publishedAt));
             }
-            return new News(jsonObject.getString("status").toString(), articleList);
+            return new News("ok", articleList);
         } catch (JSONException e) {
             e.printStackTrace();
         }
         return null;
     }
 
-    private JSONObject getJSON()
+    private String getContent()
     {HttpURLConnection connection = null;
         BufferedReader reader = null;
 
@@ -90,12 +97,10 @@ public class JSON_reader extends AsyncTask<Void, Void, News>
                 buffer.append(line);
             }
 
-            return new JSONObject(buffer.toString());
+            return buffer.toString();
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
             e.printStackTrace();
         } finally {
             if (connection != null)

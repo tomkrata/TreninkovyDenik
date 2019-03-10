@@ -74,6 +74,8 @@ dependencies {
     implementation 'com.github.timigod:android-chat-ui:v0.1.4'
     implementation 'codelight.studios:android-smart-login:1.2'
 
+    implementation 'org.json:json:20140107'
+
     testImplementation 'junit:junit:4.12'
 
 }
