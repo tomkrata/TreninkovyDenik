@@ -57,6 +57,8 @@ public class EditFrg extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.frg_edit, container, false);
+        String[] dots = getClass().getName().split("\\.");
+        Data.fragments.push(dots[dots.length - 1]);
         this.v = v;
         playerLayout = (LinearLayout)v.findViewById(R.id.players_layout);
         dayGroup = (RadioGroup)v.findViewById(R.id.dayOfWeek_group);

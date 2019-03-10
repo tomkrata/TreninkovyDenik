@@ -13,6 +13,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.krata.treninky_denik.Callbacks.GetUserCallback;
+import com.example.krata.treninky_denik.Data;
 import com.example.krata.treninky_denik.R;
 import com.example.krata.treninky_denik.ServerRequests;
 import com.example.krata.treninky_denik.User;
@@ -30,6 +31,8 @@ public class RegisterFrg extends Fragment implements View.OnClickListener
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.frg_register, container, false);
+        String[] dots = getClass().getName().split("\\.");
+        Data.fragments.push(dots[dots.length - 1]);
 
         et_userName = (EditText) v.findViewById(R.id.et_userNameReg);
         et_mail = (EditText) v.findViewById(R.id.et_mailReg);

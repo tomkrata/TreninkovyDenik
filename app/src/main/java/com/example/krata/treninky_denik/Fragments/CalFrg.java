@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.krata.treninky_denik.Callbacks.GetUserCallback;
+import com.example.krata.treninky_denik.Data;
 import com.example.krata.treninky_denik.MainActivity;
 import com.example.krata.treninky_denik.R;
 import com.example.krata.treninky_denik.ServerRequests;
@@ -35,6 +36,8 @@ public class CalFrg extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.frg_cal, container, false);
+        String[] dots = getClass().getName().split("\\.");
+        Data.fragments.push(dots[dots.length - 1]);
 
         et_userName = (EditText) v.findViewById(R.id.et_userName);
         et_pass = (EditText) v.findViewById(R.id.et_pass);
