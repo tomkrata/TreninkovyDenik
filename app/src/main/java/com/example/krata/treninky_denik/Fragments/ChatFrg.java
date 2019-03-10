@@ -57,8 +57,7 @@ public class ChatFrg extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.frg_chat, container, false);
-        String[] dots = getClass().getName().split("\\.");
-        Data.fragments.push(dots[dots.length - 1]);
+        Data.fragments.push(getClass().getName());
         userLocalStore = new UserLocalStore(getContext());
         chatView = (ChatView)v.findViewById(R.id.chat_view);
         from = userLocalStore.getLoggedUser().getNick();

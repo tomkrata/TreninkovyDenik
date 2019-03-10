@@ -62,8 +62,7 @@ public class WriteFrg extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.frg_write, container, false);
-        String[] dots = getClass().getName().split("\\.");
-        Data.fragments.push(dots[dots.length - 1]);
+        Data.fragments.push(getClass().getName());
         this.v = v;
 
         commentText = (EditText)v.findViewById(R.id.comment_view);

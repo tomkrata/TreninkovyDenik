@@ -58,8 +58,7 @@ public class NewsFrg extends Fragment implements View.OnClickListener {
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.frg_news, container, false);
-        String[] dots = getClass().getName().split("\\.");
-        Data.fragments.push(dots[dots.length - 1]);
+        Data.fragments.push(getClass().getName());
         refreshNews();
 
         swipeRefreshLayout = (SwipeRefreshLayout)v.findViewById(R.id.swipe_layout_news);

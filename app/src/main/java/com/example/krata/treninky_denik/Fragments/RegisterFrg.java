@@ -31,8 +31,7 @@ public class RegisterFrg extends Fragment implements View.OnClickListener
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.frg_register, container, false);
-        String[] dots = getClass().getName().split("\\.");
-        Data.fragments.push(dots[dots.length - 1]);
+        Data.fragments.push(getClass().getName());
 
         et_userName = (EditText) v.findViewById(R.id.et_userNameReg);
         et_mail = (EditText) v.findViewById(R.id.et_mailReg);

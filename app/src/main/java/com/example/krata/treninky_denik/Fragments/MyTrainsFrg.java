@@ -52,8 +52,7 @@ public class MyTrainsFrg extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.frg_mytrains, container, false);
-        String[] dots = getClass().getName().split("\\.");
-        Data.fragments.push(dots[dots.length - 1]);
+        Data.fragments.push(getClass().getName());
         //getSupportFragmentManager().beginTransaction().replace(R.id.frg_container, new LoginFrg()).commit();
 
         userLocalStore = new UserLocalStore(getContext());

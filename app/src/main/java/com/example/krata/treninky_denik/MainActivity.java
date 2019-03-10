@@ -8,6 +8,7 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -30,6 +31,7 @@ import com.example.krata.treninky_denik.Fragments.SearchFrg;
 import com.mikhaellopez.circularimageview.CircularImageView;
 
 import java.io.ByteArrayOutputStream;
+import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -189,7 +191,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onBackPressed() {
+        if (Data.fragments.empty() || Data.fragments.size() == 1)
+        {
+            super.onBackPressed(); //close the app
+        }
+        else
+        {
+            Data.fragments.pop();
+            String className = Data.fragments.pop();
+            Object instanceOfMyClass = null;
+            try {
+                Class myClass = Class.forName(className);
 
-//        super.onBackPressed(); //close the app
+                Class[] types = {Double.TYPE, this.getClass()};
+                Constructor constructor = myClass.getConstructor(types);
+
+                instanceOfMyClass = constructor.newInstance();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            getSupportFragmentManager().beginTransaction().replace(R.id.frg_container, (Fragment)instanceOfMyClass).commit();
+            Toast.makeText(this, className, Toast.LENGTH_SHORT).show();
+        }
     }
 }

@@ -48,8 +48,7 @@ public class SearchFrg extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.frg_searchplayer, container, false);
-        String[] dots = getClass().getName().split("\\.");
-        Data.fragments.push(dots[dots.length - 1]);
+        Data.fragments.push(getClass().getName());
         lv = (ListView) v.findViewById(R.id.search_list);
         adapter = new ArrayAdapter<String>(getContext(),
                 android.R.layout.simple_list_item_1, players);

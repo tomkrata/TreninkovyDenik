@@ -33,8 +33,7 @@ public class LoginFrg extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.frg_login, container, false);
-        String[] dots = getClass().getName().split("\\.");
-        Data.fragments.push(dots[dots.length - 1]);
+        Data.fragments.push(getClass().getName());
 
         et_userName = (EditText) v.findViewById(R.id.et_userName);
         et_pass = (EditText) v.findViewById(R.id.et_pass);
