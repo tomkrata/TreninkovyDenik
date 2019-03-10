@@ -52,18 +52,24 @@ public class RegisterFrg extends Fragment implements View.OnClickListener
             case R.id.btn_register:
                 String pass = et_pass.getText().toString();
                 String passAgain = et_passAgain.getText().toString();
-                if (!pass.equals(passAgain) && !pass.equals(""))
+                if (!pass.equals(passAgain) || pass.equals(""))
                 {
                     Toast.makeText(getContext(), "Hesla se musí shodovat!", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 String mail = et_mail.getText().toString();
-//                if (!isEmailValid(mail))
-//                {
-//                    Toast.makeText(getContext(), "E-mail musí mít skutečný formát", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
+                if (!isEmailValid(mail))
+                {
+                    Toast.makeText(getContext(), "E-mail musí mít skutečný formát", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 String nick = et_userName.getText().toString();
+                if (nick.length() <= 0)
+                {
+                    Toast.makeText(getContext(), "Zadejte prosím přezdívku", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 if (nick.contains(","))
                 {
                     Toast.makeText(getContext(), "Znak \",\" nemůžete používat", Toast.LENGTH_SHORT).show();
