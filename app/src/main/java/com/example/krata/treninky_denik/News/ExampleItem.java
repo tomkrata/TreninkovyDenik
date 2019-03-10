@@ -7,11 +7,17 @@ public class ExampleItem {
     private String mImageResource;
     private String mText1;
     private String mText2;
+    private String url;
 
-    public ExampleItem(String imageResource, String text1, String text2) {
+    public ExampleItem(String imageResource, String text1, String text2, String url) {
         mImageResource = imageResource;
         mText1 = text1;
         mText2 = text2;
+        this.url = url;
+    }
+
+    public String getUrl() {
+        return url;
     }
 
     public String getImageResource() {

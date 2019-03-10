@@ -72,7 +72,7 @@ public class MyTrainsFrg extends Fragment implements View.OnClickListener{
             players += l.getPlayers()[l.getPlayers().length - 1];
             exampleList.add(new ExampleItem("https://cdn.bleacherreport.net/images/team_logos/328x328/tennis.png",
                     l.getDayOfWeek() + " " + l.getStartTime() + "-" + l.getEndTime(),
-                    "Hráči: " + players + " Trenér: " + l.getTrainer()));
+                    "Hráči: " + players + " Trenér: " + l.getTrainer(), ""));
         }
 
         mRecyclerView = v.findViewById(R.id.lst_trains);

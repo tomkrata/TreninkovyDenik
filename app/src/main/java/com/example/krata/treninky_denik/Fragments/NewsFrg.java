@@ -1,6 +1,8 @@
 package com.example.krata.treninky_denik.Fragments;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -31,7 +33,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NewsFrg extends Fragment {
+public class NewsFrg extends Fragment implements View.OnClickListener{
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -77,7 +79,7 @@ public class NewsFrg extends Fragment {
         for (int i = 1; i < articles.size(); i++)
         {
             Article art = articles.get(i);
-            exampleList.add(new ExampleItem(art.getUrlToImage(), art.getTitle(), art.getDescription()));
+            exampleList.add(new ExampleItem(art.getUrlToImage(), art.getTitle(), art.getDescription(), art.getUrl()));
             mAdapter.notifyItemInserted(exampleList.size() - 1);
         }
         //Drawable image = loadImage(news.getArticles().get(0).getUrlToImage());
@@ -115,6 +117,18 @@ public class NewsFrg extends Fragment {
             return d;
         } catch (Exception e) {
             return null;
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
+        switch(id)
+        {
+            case R.id.top_image:
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(articles.get(0).getUrl()));
+                this.startActivity(browserIntent);
+                break;
         }
     }
 }
