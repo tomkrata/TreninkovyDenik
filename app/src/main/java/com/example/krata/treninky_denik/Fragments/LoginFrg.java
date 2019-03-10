@@ -26,7 +26,6 @@ public class LoginFrg extends Fragment implements View.OnClickListener{
     Button btnLogin;
     EditText et_userName, et_pass;
     TextView tw_register, head_nick, head_mail;
-
     UserLocalStore userLocalStore;
     @Nullable
     @Override
