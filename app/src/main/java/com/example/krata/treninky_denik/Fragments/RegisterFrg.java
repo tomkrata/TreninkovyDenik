@@ -37,7 +37,6 @@ public class RegisterFrg extends Fragment implements View.OnClickListener
         et_passAgain = (EditText) v.findViewById(R.id.et_passAgainReg);
         rGroup = (RadioGroup) v.findViewById(R.id.rBtnGroup_reg);
 
-    //
         btnRegister = (Button) v.findViewById(R.id.btn_register);
         btnRegister.setOnClickListener(this);
 
