@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,9 +22,9 @@ import com.example.krata.treninky_denik.ServerRequests;
 import com.example.krata.treninky_denik.User;
 import com.example.krata.treninky_denik.UserLocalStore;
 
-public class LoginFrg extends Fragment implements View.OnClickListener{
+public class LoginFrg extends Fragment implements View.OnClickListener {
 
-    Button btnLogin;
+    Button btnLogin, btnFace, btnInsta, btnGoogle;
     EditText et_userName, et_pass;
     TextView tw_register, head_nick, head_mail;
     UserLocalStore userLocalStore;
@@ -40,6 +41,15 @@ public class LoginFrg extends Fragment implements View.OnClickListener{
 
         btnLogin = (Button) v.findViewById(R.id.btn_login);
         btnLogin.setOnClickListener(this);
+
+        btnFace = (Button) v.findViewById(R.id.btnFace);
+        btnFace.setOnClickListener(this);
+
+        btnInsta = (Button) v.findViewById(R.id.btnInsta);
+        btnInsta.setOnClickListener(this);
+
+        btnGoogle = (Button) v.findViewById(R.id.btnGoogle);
+        btnGoogle.setOnClickListener(this);
         //getSupportFragmentManager().beginTransaction().replace(R.id.frg_container, new LoginFrg()).commit();
 
         userLocalStore = new UserLocalStore(getContext());
@@ -63,6 +73,12 @@ public class LoginFrg extends Fragment implements View.OnClickListener{
                 break;
             case R.id.tw_registerLink:
                 getFragmentManager().beginTransaction().replace(R.id.frg_container, new RegisterFrg()).commit();
+                break;
+            case R.id.btnGoogle:
+                break;
+            case R.id.btnFace:
+                break;
+            case R.id.btnInsta:
                 break;
         }
     }
@@ -97,6 +113,5 @@ public class LoginFrg extends Fragment implements View.OnClickListener{
         startActivity(new Intent(getContext(), MainActivity.class));
         //getFragmentManager().beginTransaction().replace(R.id.frg_container, new NewsFrg()).commit();
     }
-
 }
 

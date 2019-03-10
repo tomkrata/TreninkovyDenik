@@ -121,5 +121,6 @@ public class JSON_reader extends AsyncTask<Void, Void, News>
 //        progressDialog.dismiss();
         frg.news = result;
         frg.setLayout();
+        frg.setRefreshing(false);
     }
 }

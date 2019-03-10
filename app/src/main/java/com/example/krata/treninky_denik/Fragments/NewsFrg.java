@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.krata.treninky_denik.News.Article;
 import com.example.krata.treninky_denik.News.ExampleAdapter;
@@ -33,7 +36,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NewsFrg extends Fragment implements View.OnClickListener{
+public class NewsFrg extends Fragment implements View.OnClickListener {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -49,11 +52,21 @@ public class NewsFrg extends Fragment implements View.OnClickListener{
     KenBurnsView topImage;
     RecyclerView lstView;
 
+    SwipeRefreshLayout swipeRefreshLayout;
+
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.frg_news, container, false);
-        reader = new JSON_reader(this, getContext(), tennisURL);
-        reader.execute();
+        refreshNews();
+
+        swipeRefreshLayout = (SwipeRefreshLayout)v.findViewById(R.id.swipe_layout_news);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+//                Toast.makeText(getContext(), "Refresh", Toast.LENGTH_SHORT).show();
+                refreshNews();
+            }
+        });
 
         textAuthor = (TextView)v.findViewById(R.id.top_author);
         topTitle = (TextView)v.findViewById(R.id.top_title);
@@ -68,6 +81,17 @@ public class NewsFrg extends Fragment implements View.OnClickListener{
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
         return v;
+    }
+
+    public void setRefreshing(boolean state)
+    {
+        swipeRefreshLayout.setRefreshing(state);
+    }
+
+    private void refreshNews()
+    {
+        reader = new JSON_reader(this, getContext(), tennisURL);
+        reader.execute();
     }
 
     public void setLayout()
@@ -127,7 +151,7 @@ public class NewsFrg extends Fragment implements View.OnClickListener{
         {
             case R.id.top_image:
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(articles.get(0).getUrl()));
-                this.startActivity(browserIntent);
+                getContext().startActivity(browserIntent);
                 break;
         }
     }

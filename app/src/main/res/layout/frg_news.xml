@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/gradient_news">
+    android:background="@drawable/gradient_news"
+    android:id="@+id/swipe_layout_news">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -72,7 +73,8 @@
             android:layout_height="match_parent"
             android:background="@drawable/gradient_news"
             android:padding="4dp"
-            android:scrollbars="vertical" />
+            android:scrollbars="vertical"
+            android:requiresFadingEdge="vertical"/>
 
     </RelativeLayout>
 
