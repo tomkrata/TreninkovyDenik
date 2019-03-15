@@ -32,21 +32,21 @@ public class ManageFrg extends Fragment implements View.OnClickListener{
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.frg_manager, container, false);
+        View v = inflater.inflate(R.layout.frg_manager_test, container, false);
         Data.fragments.push(getClass().getName());
 
         //getSupportFragmentManager().beginTransaction().replace(R.id.frg_container, new LoginFrg()).commit();
 
         userLocalStore = new UserLocalStore(getContext());
 
-        set = (Button)v.findViewById(R.id.set_training);
-        set.setOnClickListener(this);
-        write = (Button)v.findViewById(R.id.write_training);
-        write.setOnClickListener(this);
-        cancel = (Button)v.findViewById(R.id.cancel_training);
-        cancel.setOnClickListener(this);
-        view = (Button)v.findViewById(R.id.view_training);
-        view.setOnClickListener(this);
+//        set = (Button)v.findViewById(R.id.set_training);
+//        set.setOnClickListener(this);
+//        write = (Button)v.findViewById(R.id.write_training);
+//        write.setOnClickListener(this);
+//        cancel = (Button)v.findViewById(R.id.cancel_training);
+//        cancel.setOnClickListener(this);
+//        view = (Button)v.findViewById(R.id.view_training);
+//        view.setOnClickListener(this);
 
         return v;
     }

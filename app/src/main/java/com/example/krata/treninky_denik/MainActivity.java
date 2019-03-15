@@ -3,6 +3,7 @@ package com.example.krata.treninky_denik;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
@@ -52,6 +53,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+//        Drawable drawable = getResources().getDrawable(R.drawable.gradient);
+//        this.getSupportActionBar().setBackgroundDrawable(drawable);
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer);
         NavigationView navigationView = findViewById(R.id.nav_view);

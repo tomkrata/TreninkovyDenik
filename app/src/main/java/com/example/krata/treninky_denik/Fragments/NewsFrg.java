@@ -100,6 +100,7 @@ public class NewsFrg extends Fragment implements View.OnClickListener {
     {
         articles = news.getArticles();
         String imageUrl = articles.get(0).getUrlToImage();
+        imageUrl = imageUrl.replace("thumb", "large");
         textAuthor.setText(articles.get(0).getAuthor());
         topTitle.setText(articles.get(0).getTitle());
         for (int i = 1; i < articles.size(); i++)

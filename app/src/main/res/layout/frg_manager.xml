@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:background="@drawable/gradient">
     <LinearLayout
         android:layout_height="match_parent"
         android:layout_width="0dp"
@@ -27,7 +28,8 @@
                 android:textSize="18sp"
                 android:layout_centerInParent="true"
                 android:text="Moje tréninky"
-                android:id="@+id/view_training"/>
+                android:id="@+id/view_training"
+                android:background="@drawable/rounded_choose_btn"/>
         </RelativeLayout>
         <RelativeLayout
             android:layout_height="0dp"
@@ -40,7 +42,8 @@
                 android:text="Naplánovat trénink"
                 android:layout_height="100dp"
                 android:textSize="18sp"
-                android:id="@+id/set_training"/>
+                android:id="@+id/set_training"
+                android:background="@drawable/rounded_choose_btn"/>
         </RelativeLayout>
         <RelativeLayout
             android:layout_height="0dp"
@@ -53,7 +56,8 @@
                 android:text="Zapsat trénink"
                 android:layout_height="100dp"
                 android:textSize="18sp"
-                android:id="@+id/write_training"/>
+                android:id="@+id/write_training"
+                android:background="@drawable/rounded_choose_btn"/>
         </RelativeLayout>
         <RelativeLayout
             android:layout_height="0dp"
@@ -66,7 +70,8 @@
                 android:textSize="18sp"
                 android:layout_centerInParent="true"
                 android:text="Zrušit trénink"
-                android:id="@+id/cancel_training"/>
+                android:id="@+id/cancel_training"
+                android:background="@drawable/rounded_choose_btn"/>
         </RelativeLayout>
 
     </LinearLayout>
