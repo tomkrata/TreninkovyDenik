@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +29,7 @@ public class ManageFrg extends Fragment implements View.OnClickListener{
 
     UserLocalStore userLocalStore;
 
-    Button set, write, cancel, view;
+    CardView set, write, cancel, view;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -39,14 +40,14 @@ public class ManageFrg extends Fragment implements View.OnClickListener{
 
         userLocalStore = new UserLocalStore(getContext());
 
-//        set = (Button)v.findViewById(R.id.set_training);
-//        set.setOnClickListener(this);
-//        write = (Button)v.findViewById(R.id.write_training);
-//        write.setOnClickListener(this);
-//        cancel = (Button)v.findViewById(R.id.cancel_training);
-//        cancel.setOnClickListener(this);
-//        view = (Button)v.findViewById(R.id.view_training);
-//        view.setOnClickListener(this);
+        set = (CardView)v.findViewById(R.id.card_plan);
+        set.setOnClickListener(this);
+        write = (CardView)v.findViewById(R.id.card_write);
+        write.setOnClickListener(this);
+        cancel = (CardView)v.findViewById(R.id.card_cancel);
+        cancel.setOnClickListener(this);
+        view = (CardView)v.findViewById(R.id.card_mytrains);
+        view.setOnClickListener(this);
 
         return v;
     }
@@ -56,22 +57,22 @@ public class ManageFrg extends Fragment implements View.OnClickListener{
     {
         switch(v.getId())
         {
-            case R.id.set_training:
+            case R.id.card_plan:
                 if (userLocalStore.isTrainer())
                     getFragmentManager().beginTransaction().replace(R.id.frg_container, new EditFrg()).commit();
                 else
                     Toast.makeText(getContext(), "Nemůžete plánovat tréninky", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.write_training:
+            case R.id.card_write:
                 if (userLocalStore.isTrainer())
                     getFragmentManager().beginTransaction().replace(R.id.frg_container, new WriteFrg()).commit();
                 else
                     Toast.makeText(getContext(), "Nemůžete zapisovat tréninky", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.cancel_training:
+            case R.id.card_cancel:
 
                 break;
-            case R.id.view_training:
+            case R.id.card_mytrains:
                 getFragmentManager().beginTransaction().replace(R.id.frg_container, new MyTrainsFrg()).commit();
                 break;
         }

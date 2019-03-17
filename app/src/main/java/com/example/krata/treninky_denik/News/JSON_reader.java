@@ -50,11 +50,7 @@ public class JSON_reader extends AsyncTask<Void, Void, News>
     @Override
     protected News doInBackground(Void... params) {
         JSONObject jsonObject = null;
-        try {
-            jsonObject = XML.toJSONObject(getContent()).getJSONObject("rss").getJSONObject("channel");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        jsonObject = getObject();
         try {
             JSONArray articles = jsonObject.getJSONArray("item");
             List<Article> articleList = new ArrayList<>();
@@ -74,6 +70,16 @@ public class JSON_reader extends AsyncTask<Void, Void, News>
             e.printStackTrace();
         }
         return null;
+    }
+
+    private JSONObject getObject()
+    {
+        try{
+            return XML.toJSONObject(getContent()).getJSONObject("rss").getJSONObject("channel");
+        }catch(Exception e)
+        {
+            return getObject();
+        }
     }
 
     private String getContent()

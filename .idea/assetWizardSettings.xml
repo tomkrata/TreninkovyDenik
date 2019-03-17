@@ -5,7 +5,34 @@
       <map>
         <entry key="imageWizard">
           <value>
-            <PersistentState />
+            <PersistentState>
+              <option name="children">
+                <map>
+                  <entry key="imageAssetPanel">
+                    <value>
+                      <PersistentState>
+                        <option name="children">
+                          <map>
+                            <entry key="launcher">
+                              <value>
+                                <PersistentState>
+                                  <option name="values">
+                                    <map>
+                                      <entry key="foregroundImage" value="D:\Pictures\25_Tennis (1).jpg" />
+                                      <entry key="foregroundLayerName" value="header_back" />
+                                    </map>
+                                  </option>
+                                </PersistentState>
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </PersistentState>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PersistentState>
           </value>
         </entry>
         <entry key="vectorWizard">
@@ -34,8 +61,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="ic_cancel" />
-                            <entry key="sourceFile" value="D:\Downloads\cancel-svgrepo-com.svg" />
+                            <entry key="outputName" value="ic_header_back" />
+                            <entry key="sourceFile" value="D:\Downloads\25_Tennis1.svg" />
                           </map>
                         </option>
                       </PersistentState>
