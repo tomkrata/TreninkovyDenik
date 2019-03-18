@@ -116,7 +116,11 @@ public class ServerRequests {
 
     public void fetchAllPlayersInBackground(GetPlayersCallBack callBack)
     {
-        new FetchAllPlayers(callBack).execute();
+        new FetchAllPlayers(callBack, "").execute();
+    }
+    public void fetchPrefixPlayersInBackground(GetPlayersCallBack callBack, String prefix)
+    {
+        new FetchAllPlayers(callBack, prefix).execute();
     }
 
     public void storePictureInBackground(Bitmap image, String name)
@@ -326,14 +330,17 @@ public class ServerRequests {
 
     public class FetchAllPlayers extends AsyncTask<Void, Void, ArrayList<String>> {
         GetPlayersCallBack callBack;
+        String prefix;
 
-        public FetchAllPlayers(GetPlayersCallBack callBack) {
+        public FetchAllPlayers(GetPlayersCallBack callBack,String prefix) {
             this.callBack = callBack;
+            this.prefix = prefix;
         }
 
         @Override
         protected ArrayList<String> doInBackground(Void... params) {
             ArrayList<NameValuePair> dataToSend = new ArrayList<>();
+            dataToSend.add(new BasicNameValuePair("prefix", prefix));
 
             HttpParams httpRequestParams = getHttpRequestParams();
 

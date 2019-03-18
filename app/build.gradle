@@ -30,6 +30,7 @@ android {
 }
 allprojects {
     repositories {
+        mavenCentral()
         maven { url 'https://jitpack.io' }
     }
 }
@@ -75,6 +76,7 @@ dependencies {
     implementation 'codelight.studios:android-smart-login:1.2'
 
     implementation 'org.json:json:20140107'
+    implementation 'com.facebook.android:facebook-login:[4,5)'
 
     testImplementation 'junit:junit:4.12'
 

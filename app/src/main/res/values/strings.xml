@@ -3,4 +3,6 @@
     <string name="open">Open</string>
     <string name="close">Close</string>
     <string name="register_here"><u>Registrace zde</u></string>
+    <string name="facebook_app_id">1645422782270215</string>
+    <string name="fb_login_protocol_scheme">fb1645422782270215</string>
 </resources>

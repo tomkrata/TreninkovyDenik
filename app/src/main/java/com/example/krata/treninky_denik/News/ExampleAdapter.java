@@ -24,6 +24,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleViewHolder>{
     private ArrayList<ExampleItem> mExampleList;
+    public ExampleViewHolder holder;
 
     public static class ExampleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         public CircleImageView mImageView;
@@ -73,6 +74,7 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
     @Override
     public void onBindViewHolder(ExampleViewHolder holder, int position) {
         final ExampleItem currentItem = mExampleList.get(position);
+        this.holder = holder;
         holder.setItemClickListener(new ItemClickListener() {
             @Override
             public void onClick(View view, int position, boolean isLongClick) {

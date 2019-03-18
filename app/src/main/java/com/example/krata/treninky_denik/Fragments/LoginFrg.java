@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.krata.treninky_denik.Callbacks.GetUserCallback;
 import com.example.krata.treninky_denik.Data;
@@ -22,6 +23,17 @@ import com.example.krata.treninky_denik.R;
 import com.example.krata.treninky_denik.ServerRequests;
 import com.example.krata.treninky_denik.User;
 import com.example.krata.treninky_denik.UserLocalStore;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
+
+import java.util.Arrays;
+
+import static com.facebook.FacebookSdk.getApplicationContext;
 
 public class LoginFrg extends Fragment implements View.OnClickListener {
 
@@ -29,11 +41,19 @@ public class LoginFrg extends Fragment implements View.OnClickListener {
     EditText et_userName, et_pass;
     TextView tw_register, head_nick, head_mail;
     UserLocalStore userLocalStore;
+    CallbackManager callbackManager;
+
+    LoginButton loginButton;
+
+
+    private static final String EMAIL = "email";
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.frg_login, container, false);
         Data.fragments.push(getClass().getName());
+
+        callbackManager = CallbackManager.Factory.create();
 
         et_userName = (EditText) v.findViewById(R.id.et_userName);
         et_pass = (EditText) v.findViewById(R.id.et_pass);
@@ -46,6 +66,11 @@ public class LoginFrg extends Fragment implements View.OnClickListener {
 
         btnFace = (Button) v.findViewById(R.id.btnFace);
         btnFace.setOnClickListener(this);
+
+
+//        loginButton = (LoginButton)v.findViewById(R.id.facebook_login);
+//        loginButton.setReadPermissions(Arrays.asList("public_profile", "email"));
+//        loginButton.setFragment(this);
 
         btnInsta = (Button) v.findViewById(R.id.btnInsta);
         btnInsta.setOnClickListener(this);

@@ -22,6 +22,7 @@ import com.example.krata.treninky_denik.Data;
 import com.example.krata.treninky_denik.News.Article;
 import com.example.krata.treninky_denik.News.ExampleAdapter;
 import com.example.krata.treninky_denik.News.ExampleItem;
+import com.example.krata.treninky_denik.News.ItemClickListener;
 import com.example.krata.treninky_denik.News.JSON_reader;
 import com.example.krata.treninky_denik.News.News;
 import com.example.krata.treninky_denik.R;

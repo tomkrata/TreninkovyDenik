@@ -94,6 +94,11 @@
             android:background="@drawable/instagram"
             android:layout_marginLeft="15dp"/>
 
+        <!--<com.facebook.login.widget.LoginButton-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/facebook_login"/>-->
+
         <Button
             android:id="@+id/btnFace"
             android:layout_width="30dp"

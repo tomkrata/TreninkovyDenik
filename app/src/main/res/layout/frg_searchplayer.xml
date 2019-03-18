@@ -1,27 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center_horizontal"
-    android:background="@color/white">
+    android:background="@drawable/gradient">
 
     <EditText
+        android:id="@+id/search_textview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="25sp"
-        android:id="@+id/search_textview"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Vybrat"
-        android:textSize="25sp"
-        android:id="@+id/btn_selectPlayer"/>
-    <ListView
+        android:layout_height="45dp"
+        android:background="@drawable/rounded_edit_text"
+        android:drawableLeft="@drawable/ic_action_user"
+        android:ems="10"
+        android:hint="Hledat hráče"
+        android:inputType="textPersonName"
+        android:textSize="18dp"
+        android:layout_marginBottom="5dp"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:textColorHint="@color/inputColor"
+        android:textColor="@color/inputColor"/>
+    <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Vybrat"-->
+        <!--android:textSize="25sp"-->
+        <!--android:id="@+id/btn_selectPlayer"/>-->
+    <!--<ListView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:id="@+id/search_list">-->
+
+    <!--</ListView>-->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/lst_players"
+        android:layout_below="@+id/search_textview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/search_list">
+        android:padding="4dp"
+        android:scrollbars="vertical">
 
-    </ListView>
+    </android.support.v7.widget.RecyclerView>
 
-</LinearLayout>
+</RelativeLayout>
