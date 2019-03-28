@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.krata.treninky_denik.Callbacks.RecyclerType;
 import com.example.krata.treninky_denik.Data;
 import com.example.krata.treninky_denik.News.Article;
 import com.example.krata.treninky_denik.News.ExampleAdapter;
@@ -79,7 +80,7 @@ public class NewsFrg extends Fragment implements View.OnClickListener {
         mRecyclerView = v.findViewById(R.id.lst_news);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(getContext());
-        mAdapter = new ExampleAdapter(exampleList, getContext());
+        mAdapter = new ExampleAdapter(exampleList, getContext(), RecyclerType.News);
 
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);

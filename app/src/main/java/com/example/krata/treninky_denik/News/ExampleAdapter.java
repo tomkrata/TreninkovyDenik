@@ -1,8 +1,11 @@
 package com.example.krata.treninky_denik.News;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +15,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.krata.treninky_denik.Callbacks.RecyclerType;
+import com.example.krata.treninky_denik.Data;
+import com.example.krata.treninky_denik.Fragments.ChatFrg;
 import com.example.krata.treninky_denik.R;
 import com.squareup.picasso.Picasso;
 
@@ -24,7 +30,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleViewHolder>{
     private ArrayList<ExampleItem> mExampleList;
-    public ExampleViewHolder holder;
+    RecyclerType type;
+
 
     public static class ExampleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         public CircleImageView mImageView;
@@ -59,9 +66,10 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
     }
     Context context;
 
-    public ExampleAdapter(ArrayList<ExampleItem> exampleList, Context context) {
+    public ExampleAdapter(ArrayList<ExampleItem> exampleList, Context context, RecyclerType type) {
         mExampleList = exampleList;
         this.context = context;
+        this.type = type;
     }
 
     @Override
@@ -71,21 +79,34 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
         return evh;
     }
 
+    private void newsClick(ExampleItem currentItem, boolean isLongClick)
+    {
+        String url = currentItem.getUrl();
+        if (isLongClick)
+            Toast.makeText(context, "URL: " + url, Toast.LENGTH_SHORT).show();
+        else
+        {
+//                    Toast.makeText(context, "Text 2: " + mExampleList.get(position).getText2(), Toast.LENGTH_SHORT).show();
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+            context.startActivity(browserIntent);
+        }
+    }
+
     @Override
     public void onBindViewHolder(ExampleViewHolder holder, int position) {
         final ExampleItem currentItem = mExampleList.get(position);
-        this.holder = holder;
         holder.setItemClickListener(new ItemClickListener() {
             @Override
             public void onClick(View view, int position, boolean isLongClick) {
-                String url = currentItem.getUrl();
-                if (isLongClick)
-                    Toast.makeText(context, "URL: " + url, Toast.LENGTH_SHORT).show();
-                else
+                switch(type)
                 {
-//                    Toast.makeText(context, "Text 2: " + mExampleList.get(position).getText2(), Toast.LENGTH_SHORT).show();
-                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                    context.startActivity(browserIntent);
+                    case News:
+                        newsClick(currentItem, isLongClick);
+                        break;
+                    case Search:
+                        Data.writeTo = currentItem.getText1();
+                        ((AppCompatActivity)context).getSupportFragmentManager().beginTransaction().replace(R.id.frg_container, new ChatFrg()).commit();
+                        break;
                 }
             }
         });

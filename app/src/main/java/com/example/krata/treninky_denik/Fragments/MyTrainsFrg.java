@@ -23,6 +23,7 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 
 import com.example.krata.treninky_denik.Callbacks.GetUserCallback;
+import com.example.krata.treninky_denik.Callbacks.RecyclerType;
 import com.example.krata.treninky_denik.Data;
 import com.example.krata.treninky_denik.Lesson;
 import com.example.krata.treninky_denik.MainActivity;
@@ -79,7 +80,7 @@ public class MyTrainsFrg extends Fragment implements View.OnClickListener{
         mRecyclerView = v.findViewById(R.id.lst_trains);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(getContext());
-        mAdapter = new ExampleAdapter(exampleList, getContext());
+        mAdapter = new ExampleAdapter(exampleList, getContext(), RecyclerType.Trains);
 
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
